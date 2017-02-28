@@ -1,0 +1,135 @@
+*,::after,::before{
+	padding:0;
+	margin:0;
+	list-style:none;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+}
+.text{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-weight:bold;
+	font-size:30px;
+}
+.liuguang{
+	background-image:-webkit-linear-gradient(left,
+		#3498db,#f47920 10%,#d71345 20%,#f7acbc 30%,
+		#ffd400 40%,#3498db 50%,#f47920 60%,#d71345 70%,
+		#f7acbc 80%,#ffd400 90%,#3498db);
+	color:transparent;
+	-webkit-background-clip:text;
+	background-size:200%;
+	animation:streamer 5s infinite linear;
+}
+
+.container{
+	width:60%;
+	position:relative;
+	margin:50px auto;
+}
+.container .caption{
+	padding:3%;
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:1;
+}
+.container .title{
+	width:100%;
+	height:100%;
+	position:relative;
+	text-align:center;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+}
+.container .title h1{
+	margin-bottom:10px;
+	font-weight:bold;
+}
+.container img{
+	width:100%;
+	height:100%;}
+.container .title::before{
+	height:100%;
+	width:0;
+	border:5px solid #fff;
+	border-width:5px 0;
+	content: "";
+	position:absolute;
+	top:0;
+	left:50%;
+	overflow:hidden;
+	visibility:hidden;
+	transition: all .5s;
+}
+.container .title::after{
+	width:100%;
+	height:0;
+	border:5px solid #fff;
+	border-width:0 5px;
+	content:"";
+	position:absolute;
+	left:0;top:50%;
+	overflow:hidden;
+	visibility:hidden;
+	transition:all .5s;
+}
+.container:hover .title::before{
+	width:100%;
+	left:0;
+	visibility:visible;
+}
+.container:hover .title::after{
+	height:100%;
+	top:0;
+	visibility:visible;
+}
+.container:hover img{
+	-webkit-filter:blur(2px);
+	filter:blur(2px)
+}
+
+/*a标签变色*/
+.container .breathe{
+	-webkit-animation:breathe 5s infinite linear;
+	animation:breathe 5s infinite linear
+}
+/*文字流光渐变*/
+.container .streamer{
+	background-image:
+	-webkit-linear-gradient(left,
+		#3498db,#f47920 10%,#d71345 20%,#f7acbc 30%,
+		#ffd400 40%,#3498db 50%,#f47920 60%,#d71345 70%,
+		#f7acbc 80%,#ffd400 90%,#3498db);
+	color:transparent;
+	-webkit-background-clip:text;
+	background-size:200%;
+	animation:streamer 10s infinite linear
+}
+/*文字上移*/
+.container .slideIn{
+	opacity:0;
+	transform:translate(0,20px);
+	transition:all .5s;
+}
+.container:hover .slideIn{
+	opacity:1;
+	transform:translate(0);
+}
+/*动画效果*/
+@-webkit-keyframes streamer{
+	0%{background-position:0 0}
+	100%{background-position:-100% 0}
+}	
+@-webkit-keyframes breathe{
+	0%{color:#3498db}
+	25%{color:#d71345}
+	50%{color:#f7acbc}
+	75%{color:#d71345}
+	0%{color:#3498db}
+}	
+
